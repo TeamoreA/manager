@@ -7,18 +7,18 @@
 				<div class="row">
 						<div class="col-md-12 col-lg-12 col-sm-12">
 							
-							<form action="{{ route('companies.update', [$company->id]) }}" method="POST">
+							<form action="{{ route('genres.update', [$genre->id]) }}" method="POST">
 								{{csrf_field()}}
 								{{ method_field('PUT') }}
 
 								<div class="form-group">
 									<label for="name">Name <span class="required danger">*</span></label>
-									<input type="text" id="name" required="required" name="name" spellcheck="false" class="form-control" value="{{$company->name}}">
+									<input type="text" id="name" required="required" name="name" spellcheck="false" class="form-control" value="{{$genre->name}}">
 								</div>
 
 								<div class="form-group">
 									<label for="description">Description <span class="required">*</span></label>
-									<textarea id="description" required="required" name="description" spellcheck="false" rows="6" style="resize: vertical;" class="form-control autosize-target text-left">{{$company->description}}
+									<textarea id="description" required="required" name="description" spellcheck="false" rows="6" style="resize: vertical;" class="form-control autosize-target text-left">{{$genre->description}}
 									</textarea>
 								</div>
 								<div class="form-group">
@@ -33,8 +33,8 @@
 				<div class="sidebar-module">
 					<h4>Actions</h4>
 					<ol class="list-unstyled">
-						<li><a href="{{ route('companies.show', [$company->id]) }}">Show company</a></li>
-						<li><a href="{{ route('companies.index', [$company->id]) }}">All companies</a></li>
+						<li><a href="{{ route('genres.show', [$genre->id]) }}">Show Genre</a></li>
+						<li><a href="{{ route('genres.index', [$genre->id]) }}">All Genres</a></li>
 					</ol>
 				</div>
 			</div>	

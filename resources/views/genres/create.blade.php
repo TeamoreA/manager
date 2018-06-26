@@ -6,10 +6,10 @@
 			<div class="col-sm-9 col-md-9 col-lg-9">
 				<div class="row">
 						<div class="col-md-12 col-lg-12 col-sm-12">
-							<h2>Create New Company</h2>
+							<h2>Create New Genre</h2>
 							<hr>
 							
-							<form action="{{ route('companies.store')}}" method="POST">
+							<form action="{{ route('genres.store')}}" method="POST">
 								{{csrf_field()}}
 
 								<div class="form-group">

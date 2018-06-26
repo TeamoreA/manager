@@ -7,18 +7,18 @@
 				<div class="row">
 						<div class="col-md-12 col-lg-12 col-sm-12">
 							
-							<form action="{{ route('projects.update', [$project->id]) }}" method="POST">
+							<form action="{{ route('books.update', [$book->id]) }}" method="POST">
 								{{csrf_field()}}
 								{{ method_field('PUT') }}
 
 								<div class="form-group">
 									<label for="name">Name <span class="required danger">*</span></label>
-									<input type="text" id="name" required="required" name="name" spellcheck="false" class="form-control" value="{{$project->name}}">
+									<input type="text" id="name" required="required" name="name" spellcheck="false" class="form-control" value="{{$book->name}}">
 								</div>
 
 								<div class="form-group">
 									<label for="description">Description <span class="required">*</span></label>
-									<textarea id="description" required="required" name="description" spellcheck="false" rows="6" style="resize: vertical;" class="form-control autosize-target text-left">{{$project->description}}
+									<textarea id="description" required="required" name="description" spellcheck="false" rows="6" style="resize: vertical;" class="form-control autosize-target text-left">{{$book->description}}
 									</textarea>
 								</div>
 								<div class="form-group">
@@ -33,8 +33,8 @@
 				<div class="sidebar-module">
 					<h4>Actions</h4>
 					<ol class="list-unstyled">
-						<li><a href="{{ route('projects.show', [$project->id]) }}">Show project</a></li>
-						<li><a href="{{ route('projects.index', [$project->id]) }}">All projects</a></li>
+						<li><a href="{{ route('books.show', [$book->id]) }}">Show book</a></li>
+						<li><a href="{{ route('books.index', [$book->id]) }}">All books</a></li>
 					</ol>
 				</div>
 			</div>	

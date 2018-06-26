@@ -3,18 +3,18 @@
 @section('content');
 
 		<div class="jumbotron">
-			<h1>{{$company->name}}</h1>
-			<p class="lead">{{$company->description}}</p>
+			<h1>{{$genre->name}}</h1>
+			<p class="lead">{{$genre->description}}</p>
 		</div>
 
 		<div class="row">
 			<div class="col-sm-9 col-md-9 col-lg-9">
 				<div class="row">
-					@foreach($company->projects as $project)
+					@foreach($genre->books as $book)
 						<div class="col-md-4 col-lg-4">
-							<h2>{{$project->name}}</h2>
-							<p>{{$project->description}}</p>
-							<p><a class="btn btn-primary" href="{{ route('projects.show', [$project->id]) }}" role="button">View Project</a></p>
+							<h2>{{$book->name}}</h2>
+							<p>{{$book->description}}</p>
+							<p><a class="btn btn-primary" href="{{ route('books.show', [$book->id]) }}" role="button">View Book</a></p>
 						</div>
 					@endforeach
 				</div>
@@ -23,9 +23,9 @@
 				<div class="sidebar-module">
 					<h4>Actions</h4>
 					<ol class="list-unstyled">
-						<li><a href="{{ route('companies.edit', [$company->id]) }}">Edit Company</a></li>
-						<li><a href="{{ route('companies.index') }}">List of Companies</a></li>
-						<li><a href="{{ route('projects.create', $company->id) }}">Add project</a></li>
+						<li><a href="{{ route('genres.edit', [$genre->id]) }}">Edit genre</a></li>
+						<li><a href="{{ route('genres.index') }}">List of Books</a></li>
+						<li><a href="{{ route('books.create', $genre->id) }}">Add book</a></li>
 
 						<li>
 							<a href="#"
@@ -38,7 +38,7 @@
 								" >
 								Delete
 							</a>
-							<form action="{{ route('companies.destroy', $company->id) }}" id="delete-form" method="POST" style="display: none;">
+							<form action="{{ route('genres.destroy', $genre->id) }}" id="delete-form" method="POST" style="display: none;">
 								{{csrf_field()}}
 								{{ method_field('DELETE') }}
 							</form>

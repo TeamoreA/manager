@@ -19,7 +19,7 @@ class Project extends Model
         return $this->belongsToMany('App\User');
     }
 
-    public function company()
+    public function genre()
     {
         return $this->belongsTo('App\Company');
     }

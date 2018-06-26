@@ -7,8 +7,8 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-12 col-lg-12">
 				<div class="well well-lg well-primary">
-					<h1>{{$project->name}}</h1>
-					<p class="lead">{{$project->description}}</p>
+					<h1>{{$book->name}}</h1>
+					<p class="lead">{{$book->description}}</p>
 				</div>
 			</div>
 		</div>
@@ -18,8 +18,8 @@
 		<form action="{{ route('comments.store')}}" method="POST">
 			{{csrf_field()}}
 
-			<input type="hidden" name="commentable_type" value="App\Project">
-			<input type="hidden" name="commentable_id" value="{{$project->id}}">
+			<input type="hidden" name="commentable_type" value="App\book">
+			<input type="hidden" name="commentable_id" value="{{$book->id}}">
 
 			<div class="form-group">
 				<label for="comment">Comment <span class="required">*</span></label>
@@ -45,11 +45,11 @@
 		<div class="sidebar-module">
 			<h4>Actions</h4>
 			<ol class="list-unstyled">
-				<li><a href="{{ route('projects.edit', [$project->id]) }}"><i class="fa fa-edit"></i> Edit Project</a></li>
-				<li><a href="{{ route('projects.index') }}"><i class="fa fa-list-ol"></i> List of Projects</a></li>
-				<li><a href="{{ route('projects.create') }}"><i class="fa fa-plus-square"></i> Add project</a></li>
+				<li><a href="{{ route('books.edit', [$book->id]) }}"><i class="fa fa-edit"></i> Edit book</a></li>
+				<li><a href="{{ route('books.index') }}"><i class="fa fa-list-ol"></i> List of books</a></li>
+				<li><a href="{{ route('books.create') }}"><i class="fa fa-plus-square"></i> Add book</a></li>
 				
-				@if($project->user_id == Auth::user()->id)
+				@if($book->user_id == Auth::user()->id)
 				<li>
 					<a href="#"
 						onclick="
@@ -59,9 +59,9 @@
 								document.getElementById('delete-form').submit();
 							}
 						" ><i class="fa fa-times"></i>
-						Delete Project
+						Delete book
 					</a>
-					<form action="{{ route('projects.destroy', $project->id) }}" id="delete-form" method="POST" style="display: none;">
+					<form action="{{ route('books.destroy', $book->id) }}" id="delete-form" method="POST" style="display: none;">
 						{{csrf_field()}}
 						{{ method_field('DELETE') }}
 					</form>
@@ -72,10 +72,10 @@
 			
 			<h4>Add members</h4>
 
-			<form action="{{ route('projects.adduser') }}" id="add-user" method="POST" >
+			<form action="{{ route('books.adduser') }}" id="add-user" method="POST" >
 				{{csrf_field()}}
 				<div class="input-group">
-					<input type="hidden" name="project_id" value="{{$project->id}}">
+					<input type="hidden" name="book_id" value="{{$book->id}}">
 					<input type="text" class="form-control" name="email" placeholder="Email...">
 					<span class="input-group-btn">
 					  <button class="btn btn-default" type="submit"><i class="fas fa-list-ol"></i>Add</button>
@@ -85,7 +85,7 @@
 
 			<h4>Team members</h4>
 			<ol class="list-unstyled">
-				@foreach($project->users as $user)
+				@foreach($book->users as $user)
 					<li><a href="#">{{$user->name}}</a></li>
 				@endforeach
 			</ol>

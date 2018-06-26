@@ -17,8 +17,8 @@ class CompaniesController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            $companies = Company::where('user_id', Auth::user()->id)->get();
-            return view('companies.index')->withCompanies($companies);
+            $genres = Company::where('user_id', Auth::user()->id)->get();
+            return view('genres.index')->withGenres($genres);
         } else {
             Session::flash('errors', 'Ensure you are logged in');
             return redirect()->route('login');
@@ -34,7 +34,7 @@ class CompaniesController extends Controller
      */
     public function create()
     {
-        return view('companies.create');
+        return view('genres.create');
     }
 
     /**
@@ -49,22 +49,22 @@ class CompaniesController extends Controller
             'name'=>'required|max:100',
             'description'=>'required|min:50|max:255'
         ]);
-        $company = new Company;
+        $genre = new Company;
         if (Auth::check()) {
             
-            $company->name = $request->name;
-            $company->description = $request->description;
-            $company->user_id = $request->user()->id;
-            $company->save();
+            $genre->name = $request->name;
+            $genre->description = $request->description;
+            $genre->user_id = $request->user()->id;
+            $genre->save();
 
-            if ($company->save()) {
-                Session::flash('success', 'Company Added Successfully');
-                return redirect()->route('companies.show', $company->id);
+            if ($genre->save()) {
+                Session::flash('success', 'genre Added Successfully');
+                return redirect()->route('genres.show', $genre->id);
             } else {
                 return back()->withInput();
             }
         } else {
-           return redirect()->route('companies.show', $company->id);
+           return redirect()->route('genres.show', $genre->id);
            Session::flash('errors', 'Ensure you have Logged in');
         }
         
@@ -77,10 +77,10 @@ class CompaniesController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show(Company $genre)
     {
-        $company = Company::find($company->id);
-        return view('companies.show')->withCompany($company);
+        $genre = Company::find($genre->id);
+        return view('genres.show')->withGenre($genre);
     }
 
     /**
@@ -91,8 +91,8 @@ class CompaniesController extends Controller
      */
     public function edit(Company $company)
     {
-        $company = Company::find($company->id);
-        return view('companies.edit')->withCompany($company);
+        $genre = Company::find($genre->id);
+        return view('genres.edit')->withGenre($genre);
     }
 
     /**
@@ -108,17 +108,17 @@ class CompaniesController extends Controller
             'name' => 'required|max:100',
             'description' => 'required|max:255'
         ]);
-        $company = Company::find($company->id);
-        $company->name = $request->name;
-        $company->description = $request->description;
-        $company->save();
+        $genre = Company::find($genre->id);
+        $genre->name = $request->name;
+        $genre->description = $request->description;
+        $genre->save();
 
-        if ($company->save()) {
+        if ($genre->save()) {
             Session::flash('success', 'Data updated successfuly');
-            return redirect()->route('companies.show', $company->id);
+            return redirect()->route('genres.show', $genre->id);
         } else {
             Session::flash('errors', 'There was a problem saving your update. Try again.');
-            return redirect()->route('companies.edit', $company->id);
+            return redirect()->route('genres.edit', $genre->id);
         }
         
     }
@@ -131,11 +131,11 @@ class CompaniesController extends Controller
      */
     public function destroy(Company $company)
     {
-        $company = Company::find($company->id);
-        if ($company->delete()) {
-            return redirect()->route('companies.index')->with('success', 'Company was deleted successfuly.');
+        $genre = Company::find($genre->id);
+        if ($genre->delete()) {
+            return redirect()->route('genres.index')->with('success', 'genre was deleted successfuly.');
         } else {
-            return back()->withInput()->with('error', 'An error was incurred in deleting the company');
+            return back()->withInput()->with('error', 'An error was incurred in deleting the genre');
         }
 
     }

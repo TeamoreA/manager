@@ -9,22 +9,22 @@
 							<h2>Create New Project</h2>
 							<hr>
 							
-							<form action="{{ route('projects.store')}}" method="POST">
+							<form action="{{ route('book.store')}}" method="POST">
 								{{csrf_field()}}
 
 								<div class="form-group">
 									<label for="name">Name <span class="required danger">*</span></label>
 									<input type="text" id="name" required="required" name="name" spellcheck="false" class="form-control" placeholder="Enter Project Name">
 								</div>
-								@if($companies == null)
-								<input class="form-control" type="hidden" name="company_id" value="{{$company_id}}">
+								@if($genres == null)
+								<input class="form-control" type="hidden" name="company_id" value="{{$genre_id}}">
 								@endif
-								@if($companies != null)
+								@if($genres != null)
 								<div class="form-group">
-									<label for="company">Select Company</label>
-									<select name="company_id" id="#" class="form-control">
-										@foreach($companies as $company)
-											<option value="{{$company->id}}">{{$company->name}}</option>
+									<label for="genre_id">Select genre</label>
+									<select name="genre_id" id="#" class="form-control">
+										@foreach($genres as $genre)
+											<option value="{{$genre->id}}">{{$genre->name}}</option>
 										@endforeach
 									</select>
 								</div>

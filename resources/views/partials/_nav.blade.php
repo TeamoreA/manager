@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                <strong>CIT LIBRARY SYSTEM</strong>
             </a>
         </div>
 
@@ -37,11 +37,11 @@
                             </a>
 
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('companies.index') }}">All Companies</a></li>
-                                <li><a href="{{ route('tasks.index') }}"><i class="fa fa-tasks"></i> All Tasks</a></li>
-                                <li><a href="{{ route('projects.index') }}">All Projects</a></li>
+                                <li><a href="{{ route('genres.index') }}">All Genres</a></li>
+                                {{-- <li><a href="{{ route('tasks.index') }}"><i class="fa fa-tasks"></i> All Tasks</a></li> --}}
+                                <li><a href="{{ route('books.index') }}">All Books</a></li>
                                 <li><a href="{{ route('users.index') }}">All Users</a></li>
-                                <li><a href="{{ route('roles.index') }}">All Roles</a></li>
+                                {{-- <li><a href="{{ route('roles.index') }}">All Roles</a></li> --}}
                             </ul>
                         </li> 
                     @endif
@@ -52,9 +52,9 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('companies.index') }}"><i class="fa fa-building"></i> Companies</a></li>
-                            <li><a href="{{ route('tasks.index') }}"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a></li>
-                            <li><a href="{{ route('projects.index') }}"><i class="fa fa-edit" aria-hidden="true"></i> Projects</a></li>
+                            <li><a href="{{ route('genres.index') }}"><i class="fa fa-building"></i> Genres</a></li>
+                            {{-- <li><a href="{{ route('tasks.index') }}"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a></li> --}}
+                            <li><a href="{{ route('books.index') }}"><i class="fa fa-edit" aria-hidden="true"></i> Books</a></li>
                             <hr>
                             <li>
                                 <a href="{{ route('logout') }}"
