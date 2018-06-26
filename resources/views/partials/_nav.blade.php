@@ -26,19 +26,19 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @guest
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
+                    <li><a href="{{ route('login') }}"><i class="fa fa-key"></i>Login</a></li>
+                    <li><a href="{{ route('register') }}"><i class="fa fa-registered"></i> Register</a></li>
                 @else
 
                     @if(Auth::user()->role_id == 1)
                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                               {{--  {{ Auth::user()->name }}  --}}Admin <span class="caret"></span>
+                               {{--  {{ Auth::user()->name }}  --}}<i class="fa fa-unlock"></i> Admin <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('companies.index') }}">All Companies</a></li>
-                                <li><a href="{{ route('tasks.index') }}">All Tasks</a></li>
+                                <li><a href="{{ route('tasks.index') }}"><i class="fa fa-tasks"></i> All Tasks</a></li>
                                 <li><a href="{{ route('projects.index') }}">All Projects</a></li>
                                 <li><a href="{{ route('users.index') }}">All Users</a></li>
                                 <li><a href="{{ route('roles.index') }}">All Roles</a></li>
@@ -47,19 +47,19 @@
                     @endif
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true"><i class="fa fa-user" aria-hidden="true"></i> 
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('companies.index') }}">Companies</a></li>
+                            <li><a href="{{ route('companies.index') }}"><i class="fa fa-building"></i> Companies</a></li>
                             <li><a href="{{ route('tasks.index') }}"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a></li>
-                            <li><a href="{{ route('projects.index') }}">Projects</a></li>
+                            <li><a href="{{ route('projects.index') }}"><i class="fa fa-edit" aria-hidden="true"></i> Projects</a></li>
                             <hr>
                             <li>
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                                             document.getElementById('logout-form').submit();"><i class="fa fa-minus-circle"></i>
                                     Logout
                                 </a>
 

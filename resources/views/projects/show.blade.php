@@ -45,9 +45,9 @@
 		<div class="sidebar-module">
 			<h4>Actions</h4>
 			<ol class="list-unstyled">
-				<li><a href="{{ route('projects.edit', [$project->id]) }}">Edit Project</a></li>
-				<li><a href="{{ route('projects.index') }}">List of Projects</a></li>
-				<li><a href="{{ route('projects.create') }}">Add project</a></li>
+				<li><a href="{{ route('projects.edit', [$project->id]) }}"><i class="fa fa-edit"></i> Edit Project</a></li>
+				<li><a href="{{ route('projects.index') }}"><i class="fa fa-list-ol"></i> List of Projects</a></li>
+				<li><a href="{{ route('projects.create') }}"><i class="fa fa-plus-square"></i> Add project</a></li>
 				
 				@if($project->user_id == Auth::user()->id)
 				<li>
@@ -58,7 +58,7 @@
 								event.preventDefault();
 								document.getElementById('delete-form').submit();
 							}
-						" >
+						" ><i class="fa fa-times"></i>
 						Delete Project
 					</a>
 					<form action="{{ route('projects.destroy', $project->id) }}" id="delete-form" method="POST" style="display: none;">
@@ -78,7 +78,7 @@
 					<input type="hidden" name="project_id" value="{{$project->id}}">
 					<input type="text" class="form-control" name="email" placeholder="Email...">
 					<span class="input-group-btn">
-					  <button class="btn btn-default" type="submit">Add</button>
+					  <button class="btn btn-default" type="submit"><i class="fas fa-list-ol"></i>Add</button>
 					</span>
 				</div>
 			</form>
